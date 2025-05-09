@@ -1,0 +1,54 @@
+.loginFormWrapper {
+    width: 360px;
+    height: 360px;
+    background-color: white;
+    display: flex;
+    padding: 15px;
+    margin-top: 150px;
+    align-content: center;
+    justify-content: center;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.loginFormTitle {
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    font-weight: 800;
+    font-size: 30px;
+}
+
+.userNameInput,
+.passwordInput
+{
+    width: 320px;
+    height: 25px;
+    border: none;
+    border-bottom: 2px solid #5e55d6;
+}
+
+.userNameInput:focus, .passwordInput:focus {
+    border-bottom: 2px solid #5e55d6;
+}
+
+
+.loginButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 8px;
+    background: #5e55d6;
+    height: 50px;
+
+    margin-top: 40px;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #fff;
+}

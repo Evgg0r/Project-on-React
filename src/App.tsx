@@ -1,7 +1,9 @@
 
-export function App() {
+import {LoginForm} from "./LoginForm/LoginForm.tsx";
 
-  return 1
+
+export function App() {
+  return <LoginForm />
 }
 
 
