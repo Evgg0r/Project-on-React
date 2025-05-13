@@ -1,12 +1,12 @@
 import styles from './LoginForm.module.css'
-import * as React from "react";
+import {useState, type FormEvent}  from "react";
 
 export function LoginForm() {
-    function renderMessage(e: React.FormEvent<HTMLFormElement>) {
-        e.preventDefault()
-        const userName = e.currentTarget.userName.value
-        const userPassword = e.currentTarget.userPassword.value
+    const [userName, setUserName] = useState<string>('')
+    const [userPassword, setUserPassword] = useState<string>('')
 
+    function handleSubmit(e: FormEvent<HTMLFormElement>) {
+        e.preventDefault()
         console.log(`Пользователь успешно авторизован!
 Логин: ${userName}
 Пароль: ${userPassword}`)
@@ -14,10 +14,10 @@ export function LoginForm() {
 
   return (
       <div className={styles.loginFormWrapper}>
-        <form className={styles.loginForm} onSubmit={renderMessage}>
+        <form className={styles.loginForm} onSubmit={handleSubmit}>
           <p className={styles.loginFormTitle}>Login Form</p>
-          <input name="userName" type="text" className={styles.userNameInput} placeholder="Username" autoComplete="username" />
-          <input name="userPassword" type="password" className={styles.passwordInput} placeholder="Password" autoComplete="current-password" />
+          <input onChange={(e) => setUserName(e.target.value)} value={userName} name="userName" type="text" className={styles.userNameInput} placeholder="Username" autoComplete="username" />
+          <input onChange={(e) => setUserPassword(e.target.value)} value={userPassword} name="userPassword" type="password" className={styles.passwordInput} placeholder="Password" autoComplete="current-password" />
           <button type="submit" className={styles.loginButton}>LOGIN</button>
         </form>
       </div>

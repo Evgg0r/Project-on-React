@@ -5,7 +5,7 @@ export type TypeForm = {
 };
 
 export function App() {
-  return <RenderForm typeForm="registration" />
+  return <RenderForm typeForm="login" />
 }
 
 
