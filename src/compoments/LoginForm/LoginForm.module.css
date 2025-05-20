@@ -1,3 +1,10 @@
+/*body  {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    background-color: grey;*/
+/*}*/
+
 .loginFormWrapper {
     width: 360px;
     height: 360px;

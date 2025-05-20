@@ -1,0 +1,34 @@
+.selectWrapper {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 320px;
+    height: 47px;
+    margin-top: 38px;
+
+    label{
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 1;
+        letter-spacing: 0.01em;
+        color: rgba(0, 0, 0, 0.6);
+    }
+}
+
+select{
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+    color: #4d4040;
+
+    appearance: none;
+    background-image: url("./icons/select.svg");
+    background-repeat: no-repeat;
+    background-position: right center;
+    border: none;
+    outline: none;
+}
