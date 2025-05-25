@@ -1,7 +1,7 @@
 .filtersFilmWrapper {
     border: 1px solid rgba(0, 0, 0, 0.5);
     width: 320px;
-    height: 742px;
+    height: auto;
     margin: 24px 0 0 12px;
     padding: 24px;
 }
