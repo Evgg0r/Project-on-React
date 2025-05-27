@@ -39,3 +39,15 @@ export type GenresFilmProps = {
 export type HeaderFilterFilmsPors = {
     onReset: () => void
 }
+
+export type FilterState = {
+    sortBy: string,
+    releaseYear: string,
+    selectedGenres: string[],
+}
+
+export type FilterAction =
+    | {type: 'setSortBy'; value: string}
+    | {type: 'setReleaseYear'; value: string}
+    | {type: 'setSelectedGenres'; value: string[]}
+    | {type: 'reset'};
