@@ -6,11 +6,10 @@ export function Checkbox({id, value, checked, onChange}: GenresCheckboxProps) {
     return (
         <>
             <label className={styles.checkboxLabel}>
-                <input type="checkbox" id={id} className="checkbox-input"  value={value} onChange={onChange} checked={checked}/>
+                <input type="checkbox" id={id} className="checkbox-input" value={value} onChange={onChange}
+                       checked={checked}/>
                 <span className="checkbox-text">{value}</span>
             </label>
         </>
     )
 }
-
-
