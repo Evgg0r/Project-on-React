@@ -16,5 +16,3 @@ export function Select({id, label, options, value, onChange}: SortSelectProps) {
         </>
     )
 }
-
-

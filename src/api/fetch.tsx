@@ -1,11 +1,10 @@
-import {TOKEN} from "../constants/urls.ts";
 
-export async function fetchData(url:string) {
+export async function fetchData(url:string, userToken:string) {
     const options = {
         method: 'GET',
         headers: {
             accept: 'application/json',
-            Authorization: `Bearer ${TOKEN}`
+            Authorization: `Bearer ${userToken}`
         }
     };
 
