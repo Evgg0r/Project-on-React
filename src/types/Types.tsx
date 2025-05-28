@@ -1,3 +1,4 @@
+import type {ReactNode} from "react";
 
 export type Credentials = {
     email: string,
@@ -51,3 +52,7 @@ export type FilterAction =
     | {type: 'setReleaseYear'; value: string}
     | {type: 'setSelectedGenres'; value: string[]}
     | {type: 'reset'};
+
+export type FilterProviderProps = {
+    children: ReactNode;
+};

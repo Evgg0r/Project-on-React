@@ -1,9 +1,12 @@
 import {Select} from "../Select/Select"
-import type {MovieSortProps} from "../../types/Types.tsx";
+import {useFilter, useFilterDispatch} from "../Context/Context.tsx";
 
-export function MovieSort({sortBy, releaseYear, onChangeSortBy, onChangeReleaseYear}: MovieSortProps) {
+export function MovieSort() {
     const sortOptions = ["Полулярности", "Рейтингу", "Новизне"]
     const yearOptions = ["2023", "2024", "2025"]
+    const state = useFilter()
+    const dispatch = useFilterDispatch()
+    if (!state || !dispatch) return null;
 
     return (
         <>
@@ -11,16 +14,16 @@ export function MovieSort({sortBy, releaseYear, onChangeSortBy, onChangeReleaseY
                 id="sort-select"
                 label="Сортировать по"
                 options={sortOptions}
-                value={sortBy}
-                onChange={onChangeSortBy}
+                value={state.sortBy}
+                onChange={(value) => dispatch({type: 'setSortBy', value})}
             />
 
             <Select
             id="year-select"
             label="Год релиза"
             options={yearOptions}
-            value={releaseYear}
-            onChange={onChangeReleaseYear}
+            value={state.releaseYear}
+            onChange={(value) => dispatch({type: 'setReleaseYear', value})}
             />
         </>
     )

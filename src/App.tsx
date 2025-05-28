@@ -1,5 +1,5 @@
-import {Header} from "./compoments/Header/Header";
-import {FiltersFilm} from "./compoments/FiltersFilm/FiltersFilm";
+import {Header} from "./components/Header/Header";
+import {FiltersFilm} from "./components/FiltersFilm/FiltersFilm";
 
 
 export function App() {

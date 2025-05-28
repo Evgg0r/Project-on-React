@@ -3,14 +3,17 @@ import {useState, useEffect, type ChangeEvent, useContext} from "react";
 import {fetchData} from "../../api/fetch.tsx";
 import {URL_MOVIE_LIST} from "../../constants/urls.ts";
 import {Checkbox} from "../checkbox/Checkbox.tsx";
-import type {Genre, GenresFilmProps} from "../../types/Types.tsx";
-import {UserContext} from "../Context/Context.tsx";
+import type {Genre} from "../../types/Types.tsx";
+import {useFilter, useFilterDispatch, UserContext} from "../Context/Context.tsx";
 
 
 
-export function GenresFilm({selectedGenres, onChange}: GenresFilmProps) {
+export function GenresFilm() {
     const [genres, setGenres] = useState([])
     const userToken = useContext(UserContext)
+
+    const state = useFilter()
+    const dispatch = useFilterDispatch()
 
     useEffect(() => {
         fetchData(URL_MOVIE_LIST, userToken)
@@ -20,10 +23,17 @@ export function GenresFilm({selectedGenres, onChange}: GenresFilmProps) {
 
     function handleSelectedGenre(e: ChangeEvent<HTMLInputElement>) {
         const {value, checked} = e.target;
+        if (!state || !dispatch) return null;
         if (checked) {
-            onChange([...selectedGenres, value])
+            dispatch({
+                type: 'setSelectedGenres',
+                value: [...state.selectedGenres, value],
+            });
         } else {
-            onChange(selectedGenres.filter((el) => el !== value))
+            dispatch({
+                type: 'setSelectedGenres',
+                value: state.selectedGenres.filter(el => el !== value),
+            });
         }
     }
 
@@ -33,12 +43,12 @@ export function GenresFilm({selectedGenres, onChange}: GenresFilmProps) {
                 <span>Жанры</span>
 
                 <div>
-                    {genres.map((genre: Genre ) => (
+                    {state && genres.map((genre: Genre ) => (
                         <Checkbox
                         key={genre.id}
                         id={genre.id}
                         value={genre.name}
-                        checked={selectedGenres.includes(genre.name)}
+                        checked={state.selectedGenres.includes(genre.name)}
                         onChange={handleSelectedGenre}
                         />
                     ))}
